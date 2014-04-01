@@ -1,0 +1,47 @@
+<%= form_for(@artifact) do |f| %>
+  <% if @artifact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artifact.errors.count, "error") %> prohibited this artifact from being saved:</h2>
+
+      <ul>
+      <% @artifact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Prefix %><br>
+    <%= f.text_field :prefix %>
+  </div>
+  <div class="field">
+    <%= f.label :Number %><br>
+    <%= f.number_field :number %>.<%= f.number_field :point %>
+  </div>
+  <div class="field">
+    <%= f.label :Exhibit %><br>
+    <%= f.number_field :exhibit %>
+  </div>
+  <div class="field">
+    <%= f.label :Case %><br>
+  	<%= collection_select(:artifact, :container_id, Container.all, :id, :number, :prompt => true)%>
+   </div>
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_field :name %>
+  </div> 
+  <div class="field">
+    <%= f.label :Date %><br>
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_area :description, size: "60x12" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+ 
+<% end %>

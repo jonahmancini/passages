@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Case #:</strong>
+  <%= @container.number %>
+</p>
+
+<p>
+  <strong>Exhibit #:</strong>
+  <%= @container.exhibit %>
+</p>
+<p>
+  <strong>Room:</strong>
+  <%= @container.room.name %>
+</p>
+
+
+<strong>Artifacts in Case:</strong>
+<table>
+  <tbody>
+    <%  @container.artifacts.each do |artifact| %>
+      <tr>
+        <td>Artifact #: <%= link_to artifact.number, artifact_path(artifact) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_container_path(@container) %> |
+<%= link_to 'Back', containers_path %>

@@ -1,0 +1,31 @@
+<h1>Listing artifacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>GC #</th>
+	  <th>Case #</th>
+      <th>Exhibit #</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artifacts.each do |artifact| %>
+      <tr>
+        <td><%= artifact.prefix %>.<%= artifact.number %>.<%= artifact.point %></td>
+		<td><center><%= artifact.container.number %></center></td>
+        <td><center><%= artifact.exhibit %></center></td>
+        <td><%= link_to 'Show', artifact %></td>
+        <td><%= link_to 'Edit', edit_artifact_path(artifact) %></td>
+        <td><%= link_to 'Destroy', artifact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artifact', new_artifact_path %>

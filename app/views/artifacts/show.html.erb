@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Case Number:</strong>
+  <%= @artifact.container.number %>
+</p>
+<p>
+  <strong>Green Collection #:</strong>
+  <%= @artifact.prefix %>.<%= @artifact.number %>.<%= @artifact.point %>
+</p>
+<p>
+  <strong>Exhibit Number:</strong>
+  <%= @artifact.exhibit %>
+</p>
+<p>
+  <strong>Name:</strong> <%= @artifact.name %> 
+  <strong>Date:</strong> <%= @artifact.date %>
+</p>
+<p>s
+  <strong>Description:</strong>
+  <%= @artifact.description %>
+</p>
+
+<%= link_to 'Edit', edit_artifact_path(@artifact) %> |
+<%= link_to 'Back', artifacts_path %>
